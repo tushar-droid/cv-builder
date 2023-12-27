@@ -18,47 +18,65 @@ function App() {
         const newLName = e.target.value;
         const updatedUserDetails = {...userDetails, lastName: newLName}
         setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'address': {
+        const newAddress = e.target.value;
+        const updatedUserDetails = {...userDetails, address: newAddress}
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'email': {
+        const newEmail = e.target.value;
+        const updatedUserDetails = {...userDetails, email: newEmail}
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'phone': {
+        const newPhone = e.target.value;
+        const updatedUserDetails = {...userDetails, phone: newPhone}
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'gitlink': {
+        const newGit = e.target.value;
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.links.git = newGit;
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'linkedlink': {
+        const newLinkedin = e.target.value;
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.links.linkedin = newLinkedin;
+        setUserDetails(updatedUserDetails)
+        break;
       }
     }
   }
 
 
   
-  // const [fname, setfname] = useState('Tushar');
-  // const [lname, setlname] = useState('Tushar');
-  // const handlefnameChange = (e) =>{
-  //   setfname(e.target.value)
-  // }
-  // const handlelnameChange = (e) =>{
-  //   setlname(e.target.value)
-  // }
 
   return (
   <>
     <InputForm 
-      firstName = {userDetails.firstName}
-      lastName = {userDetails.lastName}
+      user = {userDetails}
       changeHandler = {handleChanges}
     />
 
     <h1>Full Name: {userDetails.firstName} {userDetails.lastName}</h1>
+    <h1>Address: {userDetails.address}</h1>
+    <h1>Email: {userDetails.email}</h1>
+    <h1>Phone numer: {userDetails.phone}</h1>
+    <h1>Git: {userDetails.links.git}</h1>
+    <h1>Linkedin: {userDetails.links.linkedin}</h1>
+
   </>
 
   )
 
 
-  
-  // return ( 
-  //   <>
-  //   <InputForm 
-  //   fname ={fname}
-  //   handlefnameChange = {handlefnameChange}
-  //   lname = {lname}
-  //   handlelnameChange = {handlelnameChange} 
-  //   />
-  //   <h1>hello, {fname} {lname}</h1>
-  //   </>
-  // )
 }
 
 export default App
