@@ -1,5 +1,5 @@
 const User = {
-    firstName:'',
+    firstName:'Tusahr',
     lastName:'',
     address: '',
     email: '',
@@ -9,7 +9,7 @@ const User = {
         linkedin: '',
         portfolio: ''
     },
-    Skills: {
+    skills: {
         progLanguages: [],
         os: [],
         db: [],
