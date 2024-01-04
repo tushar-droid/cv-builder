@@ -1,5 +1,5 @@
 const User = {
-    firstName:'Tusahr',
+    firstName:'name',
     lastName:'',
     address: '',
     email: '',
@@ -15,7 +15,44 @@ const User = {
         db: [],
         webtools: [],
         othertools: [],
-    }
+    },
+    work: {
+            job0: {
+                position: 'monster',
+                company: '',
+                startDate: '',
+                endDate: '',
+                duties:[],
+            },
+            job1:{
+                position: 'ford',
+                company: '',
+                startDate: '',
+                endDate: '',
+                duties:[],
+            }
+        }
+    // work: {
+    //     0: [
+    //             {
+    //                 position: 'monster',
+    //                 company: '',
+    //                 startDate: '',
+    //                 endDate: '',
+    //                 duties:[],
+    //             }
+    //     ],
+    //     1: [
+    //         {
+    //             position: 'Ford',
+    //             company: '',
+    //             startDate: '',
+    //             endDate: '',
+    //             duties:[],
+    //         }
+    // ]
+
+    // },
 
 }
 

@@ -1,10 +1,13 @@
 import './styles/style.css'
-import GeneralDetails from './components/GeneralDetails.jsx';
-import User from './components/UserTemplate.js';
 import { useState } from 'react'
+import GeneralDetails from './components/GeneralDetails.jsx';
+import WorkDetails from './components/WorkDetails.jsx';
+import ProjectDetails from './components/ProjectDetails.jsx';
+import User from './components/UserTemplate.js';
+import EducationDetails from './components/EducationDetails.jsx';
 function App() {
   const [userDetails, setUserDetails] = useState(User); 
-  
+  const [currPage, setcurrPage] = useState(0);
   const handleChanges = (e) =>{
     const changeId = e.target.id;
     switch (changeId){
@@ -52,6 +55,13 @@ function App() {
         setUserDetails(updatedUserDetails)
         break;
       }
+      case 'portfoliolink': {
+        const newPortfolio = e.target.value;
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.links.portfolio = newPortfolio;
+        setUserDetails(updatedUserDetails)
+        break;
+      }
       case 'proglanguages': {
         const newlanguagesString = e.target.value;
         const languageArray = newlanguagesString.split(",")
@@ -96,29 +106,78 @@ function App() {
   }
 
 
+
+  const handleWorkChanges = (e) =>{
+    const changeId = e.target.id;
+    console.log(changeId)
+  }
+
+
+
+
+
+  function nextPageButton (){
+    if(currPage === 3)
+      setcurrPage(0)
+    else setcurrPage(currPage + 1);
+  }
+
+  function prevPageButton (){
+    if(currPage === 0)
+      setcurrPage(3)
+    else setcurrPage(currPage - 1);
+  }
   
+
+
+
+
 
   return (
   <>
-    <form>
-    <GeneralDetails 
-      user = {userDetails}
-      changeHandler = {handleChanges}
-    />
-    </form>
+    <div className="form-container">
+      <form>
+      {currPage === 0 && (
+        <GeneralDetails 
+          user = {userDetails}
+          changeHandler = {handleChanges}
+        />
+      )}
+      {currPage === 1 && (
+        <WorkDetails
+        user = {userDetails.work}
+        changeHandler = {handleWorkChanges}
+        />
+      )}
+      {currPage === 2 && (
+        <ProjectDetails/>
+      )}
+      {currPage === 3 && (
+        <EducationDetails/>
+      )}
 
-    <h1>Full Name: {userDetails.firstName} {userDetails.lastName}</h1>
-    <h1>Address: {userDetails.address}</h1>
-    <h1>Email: {userDetails.email}</h1>
-    <h1>Phone numer: {userDetails.phone}</h1>
-    <h1>Git: {userDetails.links.git}</h1>
-    <h1>Linkedin: {userDetails.links.linkedin}</h1>
-    <h1>SKILLS</h1>
-    <h2>Programming Languages: {userDetails.skills.progLanguages.toString()}</h2>
-    <h2>Web tools: {userDetails.skills.webtools.toString()}</h2>
-    <h2>Operating Systems: {userDetails.skills.os.toString()}</h2>
-    <h2>Databases: {userDetails.skills.db.toString()}</h2>
-    <h2>Other Tools: {userDetails.skills.othertools.toString()}</h2>
+      </form>
+      <div className="navigation-btns">
+        <button className="prev-page-btn" onClick={prevPageButton}>Previous Page</button>
+        <button className="next-page-btn" onClick={nextPageButton}>Next Page</button>
+      </div>
+    </div>  
+
+    <div className="resume-container">
+      <h1>Full Name: {userDetails.firstName} {userDetails.lastName}</h1>
+      <h1>Address: {userDetails.address}</h1>
+      <h1>Email: {userDetails.email}</h1>
+      <h1>Phone numer: {userDetails.phone}</h1>
+      <h1>Git: {userDetails.links.git}</h1>
+      <h1>Linkedin: {userDetails.links.linkedin}</h1>
+      <h1>Portfolio: {userDetails.links.portfolio}</h1>
+      <h1>SKILLS</h1>
+      <h2>Programming Languages: {userDetails.skills.progLanguages.toString()}</h2>
+      <h2>Web tools: {userDetails.skills.webtools.toString()}</h2>
+      <h2>Operating Systems: {userDetails.skills.os.toString()}</h2>
+      <h2>Databases: {userDetails.skills.db.toString()}</h2>
+      <h2>Other Tools: {userDetails.skills.othertools.toString()}</h2>
+    </div>
   </>
 
   )
