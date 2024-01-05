@@ -107,9 +107,50 @@ function App() {
 
 
 
-  const handleWorkChanges = (e) =>{
+  const handleWorkChanges = (e, jobId) =>{
     const changeId = e.target.id;
-    console.log(changeId)
+    switch (changeId) {
+      case 'position':{
+        const newPosition = e.target.value;        
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.work[jobId].position = newPosition;
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'company':{
+        const newCompany = e.target.value;        
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.work[jobId].company = newCompany;
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'startDate':{
+        const newStart = e.target.value;        
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.work[jobId].startDate = newStart;
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'endDate':{
+        const newEnd = e.target.value;        
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.work[jobId].endDate = newEnd;
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      case 'duties':{
+        const newDutiesString = e.target.value;      
+        console.log(newDutiesString[newDutiesString.length -1 ])
+        const newDutiesArray = newDutiesString.split('\n');
+        console.log(newDutiesArray);
+        const updatedUserDetails = {...userDetails};
+        updatedUserDetails.work[jobId].duties = newDutiesArray;
+        setUserDetails(updatedUserDetails)
+        break;
+      }
+      default:
+        break;
+    }
   }
 
 
@@ -127,10 +168,6 @@ function App() {
       setcurrPage(3)
     else setcurrPage(currPage - 1);
   }
-  
-
-
-
 
 
   return (
@@ -177,6 +214,25 @@ function App() {
       <h2>Operating Systems: {userDetails.skills.os.toString()}</h2>
       <h2>Databases: {userDetails.skills.db.toString()}</h2>
       <h2>Other Tools: {userDetails.skills.othertools.toString()}</h2>
+      <h1>Work Experience</h1>
+      <ul>
+        {userDetails.work.map((wk) =>
+          <li key={wk.id}>
+            <h2>Company: {wk.company}</h2>
+            <h2>Position: {wk.position}</h2> 
+            <h3>Start date: {wk.startDate}</h3>
+            <h3>End Date: {wk.endDate}</h3>
+            <h3 style={{ whiteSpace: 'pre-line' }}>
+              Duties:
+              {wk.duties.map((duty, index) => (
+                <p key={index}>{duty + '\n'}</p>
+              ))}
+            </h3>
+
+          </li>
+        )}
+      </ul>
+
     </div>
   </>
 
