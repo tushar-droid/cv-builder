@@ -19,7 +19,7 @@ const User = {
 
     work: [
         {
-            id:0,
+            id: Date.now(),
             position: 'Software Developer Intern',
             company: 'monster',
             startDate: '11-August-2019',
@@ -31,7 +31,7 @@ const User = {
             ]
             },
         {
-            id:1,
+            id:Date.now() + 1 ,             // Both Elements create at same time so end up having the same ID
             position: 'Fleet & Commercial Assistant',
             company: 'Ford',
             startDate: '11-August-2019',

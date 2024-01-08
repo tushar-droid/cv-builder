@@ -105,46 +105,51 @@ function App() {
     }
   }
 
-
-
   const handleWorkChanges = (e, jobId) =>{
     const changeId = e.target.id;
+    const targetIndex= userDetails.work.indexOf(userDetails.work.find(x => x.id === jobId));       
+    if(e.target.className ==='deleteWork'){
+      const updatedUserDetails = {...userDetails};
+      updatedUserDetails.work.splice(targetIndex, 1);
+      setUserDetails(updatedUserDetails);
+      return
+    }
     switch (changeId) {
       case 'position':{
         const newPosition = e.target.value;        
         const updatedUserDetails = {...userDetails};
-        updatedUserDetails.work[jobId].position = newPosition;
+        updatedUserDetails.work[targetIndex].position = newPosition;
         setUserDetails(updatedUserDetails)
         break;
       }
       case 'company':{
         const newCompany = e.target.value;        
         const updatedUserDetails = {...userDetails};
-        updatedUserDetails.work[jobId].company = newCompany;
+        updatedUserDetails.work[targetIndex].company = newCompany;
         setUserDetails(updatedUserDetails)
         break;
       }
       case 'startDate':{
         const newStart = e.target.value;        
         const updatedUserDetails = {...userDetails};
-        updatedUserDetails.work[jobId].startDate = newStart;
+        updatedUserDetails.work[targetIndex].startDate = newStart;
         setUserDetails(updatedUserDetails)
         break;
       }
       case 'endDate':{
         const newEnd = e.target.value;        
         const updatedUserDetails = {...userDetails};
-        updatedUserDetails.work[jobId].endDate = newEnd;
+        updatedUserDetails.work[targetIndex].endDate = newEnd;
         setUserDetails(updatedUserDetails)
         break;
       }
       case 'duties':{
         const newDutiesString = e.target.value;      
-        console.log(newDutiesString[newDutiesString.length -1 ])
+        console.log(newDutiesString[newDutiesString.length -1 ])        // To be Removed 
         const newDutiesArray = newDutiesString.split('\n');
         console.log(newDutiesArray);
         const updatedUserDetails = {...userDetails};
-        updatedUserDetails.work[jobId].duties = newDutiesArray;
+        updatedUserDetails.work[targetIndex].duties = newDutiesArray;
         setUserDetails(updatedUserDetails)
         break;
       }
@@ -153,6 +158,21 @@ function App() {
     }
   }
 
+  const addNewWork = (e) =>{
+    e.preventDefault();
+    const UniqId = Date.now();
+    const updateUserDetails = {...userDetails};
+    const newWork ={
+      id:UniqId,
+      position: 'some random position',
+      company: '',
+      startDate: '',
+      endDate: '',
+      duties:[]
+    }
+    updateUserDetails.work.push(newWork);
+    setUserDetails(updateUserDetails);
+  }
 
 
 
@@ -181,10 +201,13 @@ function App() {
         />
       )}
       {currPage === 1 && (
-        <WorkDetails
-        user = {userDetails.work}
-        changeHandler = {handleWorkChanges}
-        />
+        <>
+          <WorkDetails
+            user = {userDetails.work}
+            changeHandler = {handleWorkChanges}
+            />
+            <button className='AddNewWork' onClick={addNewWork}>Add New</button>
+        </>
       )}
       {currPage === 2 && (
         <ProjectDetails/>
@@ -223,16 +246,11 @@ function App() {
             <h3>Start date: {wk.startDate}</h3>
             <h3>End Date: {wk.endDate}</h3>
             <h3 style={{ whiteSpace: 'pre-line' }}>
-              Duties:
-              {wk.duties.map((duty, index) => (
-                <p key={index}>{duty + '\n'}</p>
-              ))}
+              Duties: {wk.duties}                  
             </h3>
-
           </li>
         )}
       </ul>
-
     </div>
   </>
 
