@@ -174,9 +174,126 @@ function App() {
     setUserDetails(updateUserDetails);
   }
 
+  const handleProjectChanges = (e, projectId) =>{
+    const changeId = e.target.id;
+    const targetIndex= userDetails.projects.indexOf(userDetails.projects.find(x => x.id === projectId));       
+    if(e.target.className ==='delete-project'){
+      const updatedUserDetails = {...userDetails};
+      updatedUserDetails.projects.splice(targetIndex, 1);
+      setUserDetails(updatedUserDetails);
+      return
+    }
+    const newData = e.target.value;        
+    const newUserDetails = {...userDetails};
+    switch (changeId) {
+      case 'project-name':{
+        newUserDetails.projects[targetIndex].projectName = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }
+      case 'tech-stack':{
+        newUserDetails.projects[targetIndex].technologies = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }
+      case 'project-details':{
+        newUserDetails.projects[targetIndex].projectDetails = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }
+      default:
+        break;
+    }
+    
+
+  }
+
+  const addNewProject = (e) =>{
+    e.preventDefault();
+    const UniqId = Date.now();
+    const updateUserDetails = {...userDetails};
+    const newProject ={
+      id:UniqId,
+      projectName:'',
+      technologies: [],
+      projectDetails: []
+    }
+    updateUserDetails.projects.push(newProject);
+    setUserDetails(updateUserDetails);
+  }
+
+  const handleEducationChages = (e, studyId) =>{
+    const changeId = e.target.id;
+    const targetIndex= userDetails.education.indexOf(userDetails.education.find(x => x.id === studyId));       
+    if(e.target.className ==='delete-education'){
+      const updatedUserDetails = {...userDetails};
+      updatedUserDetails.education.splice(targetIndex, 1);
+      setUserDetails(updatedUserDetails);
+      return
+    }
+
+    const newData = e.target.value;        
+    const newUserDetails = {...userDetails};
+
+    switch (changeId) {
+      case 'institute-name':{
+        newUserDetails.education[targetIndex].instituteName = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }   
+      case 'location':{
+        newUserDetails.education[targetIndex].location = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }     
+      case 'course':{
+        newUserDetails.education[targetIndex].course = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }  
+      case 'graduation-date':{
+        newUserDetails.education[targetIndex].graduationDate = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }  
+      case 'gpa':{
+        newUserDetails.education[targetIndex].gpa = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }  
+      case 'study-details':{
+        newUserDetails.education[targetIndex].details = newData;
+        setUserDetails(newUserDetails)
+        break;
+      }  
+      
+      default:
+        break;
+    }
+
+
+  }
+
+  const addNewStudy = (e) =>{
+    e.preventDefault();
+    const UniqId = Date.now();
+    const updateUserDetails = {...userDetails};
+    const newStudy={
+      id:UniqId,
+      instituteName: '',
+      location: '',
+      course: '',
+      graduationDate: '',
+      gpa: '',
+      details: []
+    }
+    updateUserDetails.education.push(newStudy);
+    setUserDetails(updateUserDetails);
+  }
 
 
 
+  
   function nextPageButton (){
     if(currPage === 3)
       setcurrPage(0)
@@ -210,10 +327,22 @@ function App() {
         </>
       )}
       {currPage === 2 && (
-        <ProjectDetails/>
+        <>
+        <ProjectDetails
+          user = {userDetails.projects}
+          changeHandler = {handleProjectChanges}
+        />
+        <button className='AddNewProject' onClick={addNewProject}>Add New</button>        
+        </>
       )}
       {currPage === 3 && (
-        <EducationDetails/>
+        <>
+        <EducationDetails
+          user = {userDetails.education}
+          changeHandler = {handleEducationChages}
+        />
+        <button className='AddNewEducation' onClick={addNewStudy}>Add New</button>
+        </>
       )}
 
       </form>
@@ -251,6 +380,35 @@ function App() {
           </li>
         )}
       </ul>
+      <h1>Projects</h1>
+      <ul>
+        {
+          userDetails.projects.map((project) =>
+            <li key = {project.id}>              
+              <h2>Project Name: {project.projectName}</h2>
+              <h3>Technologies Used: {project.technologies}</h3>
+              <p>{project.projectDetails}</p>
+            </li>
+          )
+        }
+      </ul>
+      <h1>Education</h1>
+      <ul>
+        {
+          userDetails.education.map((study) =>
+          <li key={study.id}>
+            <h2>Institute Name: {study.instituteName}</h2>
+            <h3>location: {study.location}</h3>
+            <h3>course: {study.course}</h3>  
+            <h3>grad Date: {study.graduationDate}</h3>  
+            <h3>GPA: {study.gpa}</h3>
+            <h3>Details: {study.details}</h3>    
+          </li>
+          )
+        }
+
+      </ul>
+      
     </div>
   </>
 
