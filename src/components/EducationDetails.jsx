@@ -35,7 +35,7 @@ function EducationFormTemplate(study, handler) {
             <textarea rows="10" cols="50" id='study-details' value={study.details} onChange={(e) => handler(e, study.id)}/><br/>                         
             <br />        
 
-            <button className="delete-education" onClick={(e) => {e.preventDefault(); handler(e,study.id) }}>Delete</button>  
+            <button className="delete-education" type="button"  onClick={(e) => {e.preventDefault(); handler(e,study.id) }}>Delete</button>  
             <br />  
         </li>
     )

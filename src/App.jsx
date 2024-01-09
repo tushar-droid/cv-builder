@@ -5,6 +5,7 @@ import WorkDetails from './components/WorkDetails.jsx';
 import ProjectDetails from './components/ProjectDetails.jsx';
 import User from './components/UserTemplate.js';
 import EducationDetails from './components/EducationDetails.jsx';
+import ResumeMaker from './components/ResumeMaker.jsx';
 function App() {
   const [userDetails, setUserDetails] = useState(User); 
   const [currPage, setcurrPage] = useState(0);
@@ -165,7 +166,7 @@ function App() {
       company: '',
       startDate: '',
       endDate: '',
-      duties:[]
+      duties:'',
     }
     updateUserDetails.work.push(newWork);
     setUserDetails(updateUserDetails);
@@ -213,7 +214,7 @@ function App() {
       id:UniqId,
       projectName:'',
       technologies: [],
-      projectDetails: []
+      projectDetails: ''
     }
     updateUserDetails.projects.push(newProject);
     setUserDetails(updateUserDetails);
@@ -282,7 +283,7 @@ function App() {
       course: '',
       graduationDate: '',
       gpa: '',
-      details: []
+      details: ''
     }
     updateUserDetails.education.push(newStudy);
     setUserDetails(updateUserDetails);
@@ -350,7 +351,10 @@ function App() {
     </div>  
 
     <div className="resume-container">
-      <h1>Full Name: {userDetails.firstName} {userDetails.lastName}</h1>
+      <ResumeMaker 
+        user = {userDetails}
+      />
+      {/* <h1>Full Name: {userDetails.firstName} {userDetails.lastName}</h1>
       <h1>Address: {userDetails.address}</h1>
       <h1>Email: {userDetails.email}</h1>
       <h1>Phone numer: {userDetails.phone}</h1>
@@ -417,7 +421,7 @@ function App() {
           )
         }
 
-      </ul>
+      </ul> */}
       
     </div>
   </>

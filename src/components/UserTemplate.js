@@ -1,27 +1,27 @@
 const User = {
-    firstName:'name',
-    lastName:'',
-    address: '',
-    email: '',
-    phone: '',
+    firstName:'Tushar',
+    lastName:'Tushar',
+    address: '123 Main Street, Anytown, USA, 12345',
+    email: 'randomuser123@example.com',
+    phone: '555-1234-5678',
     links: {
-        git: '',
-        linkedin: '',
-        portfolio: ''
+        git: 'https://github.com/tushar-droid',
+        linkedin: 'https://www.linkedin.com/in/tushar3022/',
+        portfolio: 'https://tushar-droid.github.io/MyCodeJourney/'
     },
     skills: {
-        progLanguages: [],
-        os: [],
-        db: [],
-        webtools: [],
-        othertools: [],
+        progLanguages: ['JavaScript', 'Python', 'Java', 'C++', 'Ruby', 'Swift', 'TypeScript', 'Kotlin'],
+        os: ['Windows', 'macOS', 'Linux', 'Android', 'iOS'],
+        db: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite', 'Oracle', 'Microsoft SQL Server'],
+        webtools: ['VSCode', 'Git', 'Webpack', 'npm', 'Chrome DevTools', 'JIRA', 'Figma'],
+        othertools: ['Photoshop', 'Excel', 'Slack', 'Trello', 'Zoom', 'Notion', 'Eclipse', 'Sublime Text'],
     },
 
     work: [
         {
             id: Date.now(),
             position: 'Software Developer Intern',
-            company: 'monster',
+            company: 'Monster',
             startDate: '11-August-2019',
             endDate: '11-November-2019',
             duties : 'Implemented enhancements using Spring Batch and Spring Boot to modernize Legacy code. \nConducted Data Processing for Apache Solr, optimizing data upload processes and reducing processing time by 15%. \nMaintained regular, punctual communication with senior developers for timely updates and guidance.'
