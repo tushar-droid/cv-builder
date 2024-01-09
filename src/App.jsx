@@ -144,12 +144,9 @@ function App() {
         break;
       }
       case 'duties':{
-        const newDutiesString = e.target.value;      
-        console.log(newDutiesString[newDutiesString.length -1 ])        // To be Removed 
-        const newDutiesArray = newDutiesString.split('\n');
-        console.log(newDutiesArray);
+        const newDutiesString = e.target.value;                      
         const updatedUserDetails = {...userDetails};
-        updatedUserDetails.work[targetIndex].duties = newDutiesArray;
+        updatedUserDetails.work[targetIndex].duties = newDutiesString;
         setUserDetails(updatedUserDetails)
         break;
       }
@@ -310,7 +307,7 @@ function App() {
   return (
   <>
     <div className="form-container">
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
       {currPage === 0 && (
         <GeneralDetails 
           user = {userDetails}
@@ -323,7 +320,7 @@ function App() {
             user = {userDetails.work}
             changeHandler = {handleWorkChanges}
             />
-            <button className='AddNewWork' onClick={addNewWork}>Add New</button>
+            <button className='AddNewWork' onClick={addNewWork} type="button">Add New</button>
         </>
       )}
       {currPage === 2 && (
@@ -332,7 +329,7 @@ function App() {
           user = {userDetails.projects}
           changeHandler = {handleProjectChanges}
         />
-        <button className='AddNewProject' onClick={addNewProject}>Add New</button>        
+        <button className='AddNewProject' onClick={addNewProject} type="button" >Add New</button>        
         </>
       )}
       {currPage === 3 && (
@@ -341,7 +338,7 @@ function App() {
           user = {userDetails.education}
           changeHandler = {handleEducationChages}
         />
-        <button className='AddNewEducation' onClick={addNewStudy}>Add New</button>
+        <button className='AddNewEducation' onClick={addNewStudy} type="button">Add New</button>
         </>
       )}
 
@@ -374,9 +371,12 @@ function App() {
             <h2>Position: {wk.position}</h2> 
             <h3>Start date: {wk.startDate}</h3>
             <h3>End Date: {wk.endDate}</h3>
-            <h3 style={{ whiteSpace: 'pre-line' }}>
-              Duties: {wk.duties}                  
-            </h3>
+            <h3>Details</h3>
+            <ul>
+              {wk.duties.split('\n').filter(line => line.trim() !== '').map((line, index) => (
+                <li key={index}>{line}</li>
+              ))}              
+            </ul>
           </li>
         )}
       </ul>
@@ -387,7 +387,12 @@ function App() {
             <li key = {project.id}>              
               <h2>Project Name: {project.projectName}</h2>
               <h3>Technologies Used: {project.technologies}</h3>
-              <p>{project.projectDetails}</p>
+              <h3>Project Details</h3>
+              <ul>
+              {project.projectDetails.split('\n').filter(line => line.trim() !== '').map((line, index) => (
+                <li key={index}>{line}</li>
+              ))}              
+            </ul>
             </li>
           )
         }
@@ -402,7 +407,12 @@ function App() {
             <h3>course: {study.course}</h3>  
             <h3>grad Date: {study.graduationDate}</h3>  
             <h3>GPA: {study.gpa}</h3>
-            <h3>Details: {study.details}</h3>    
+            <h3>Details</h3>    
+            <ul>
+              {study.details.split('\n').filter(line => line.trim() !== '').map((line, index) => (
+                <li key={index}>{line}</li>
+              ))}              
+            </ul>
           </li>
           )
         }
