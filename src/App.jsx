@@ -190,7 +190,8 @@ function App() {
         break;
       }
       case 'tech-stack':{
-        newUserDetails.projects[targetIndex].technologies = newData;
+        const newDataArray = newData.split(",")
+        newUserDetails.projects[targetIndex].technologies = newDataArray;        
         setUserDetails(newUserDetails)
         break;
       }

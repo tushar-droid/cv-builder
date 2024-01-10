@@ -15,7 +15,6 @@ body{
 
 
 .form-container{
-    /* outline: black solid; */
     flex: 1;
     display: flex;
     gap: 5%;
@@ -25,7 +24,6 @@ body{
 }
 
 .resume-container{
-    /* outline: green solid; */
     flex: 1;
     display: flex;
     flex-direction: column;
