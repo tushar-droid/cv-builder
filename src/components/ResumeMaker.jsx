@@ -20,18 +20,19 @@ function ResumeMaker(props){
                 {skillsSection(props.user.skills)}
             </div>
             <div className="work-container">
-                <h2 style={{margin:0, padding:0, marginTop:30, marginBottom:0}}>WORK EXPERIENCE</h2>
-                <hr/>
+                {props.user.work.length > 0 && <h2 style={{margin:0, padding:0, marginTop:30, marginBottom:0}}>WORK EXPERIENCE</h2>}
+                { props.user.work.length > 0 && <hr/>}            
                 {workSection(props.user.work)}
             </div>
             <div className="projects-container">
-                <h2 style={{margin:0, padding:0, marginTop:30, marginBottom:0}}>PROJECT EXPERIENCE</h2>
-                <hr/>
+                { props.user.projects.length > 0 &&  <h2 style={{margin:0, padding:0, marginTop:30, marginBottom:0}}>PROJECT EXPERIENCE</h2>}
+                { props.user.projects.length > 0 && <hr/>}            
+                {/* <hr/> */}
                 {projectSection(props.user.projects)}
             </div>
             <div className="education-container">
-                <h2 style={{margin:0, padding:0, marginTop:30, marginBottom:0}}>EDUCATION</h2>
-                <hr/>
+                {props.user.education.length > 0 && <h2 style={{margin:0, padding:0, marginTop:30, marginBottom:0}}>EDUCATION</h2>}
+                { props.user.education.length > 0 && <hr/>}  
                 {educationSection(props.user.education)}
             </div>
         </div>

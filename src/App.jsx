@@ -309,6 +309,7 @@ function App() {
   return (
   <>
     <div className="form-container">
+      <h1>Fill Form </h1>
       <form onSubmit={(e) => e.preventDefault()}>
       {currPage === 0 && (
         <GeneralDetails 
@@ -346,8 +347,8 @@ function App() {
 
       </form>
       <div className="navigation-btns">
-        <button className="prev-page-btn" onClick={prevPageButton}>Previous Page</button>
-        <button className="next-page-btn" onClick={nextPageButton}>Next Page</button>
+        <button className="prev-page-btn" onClick={prevPageButton}>&#8678;</button>
+        <button className="next-page-btn" onClick={nextPageButton}>&#8680;</button>
       </div>
     </div>  
 
@@ -355,74 +356,7 @@ function App() {
       <ResumeMaker 
         user = {userDetails}
       />
-      {/* <h1>Full Name: {userDetails.firstName} {userDetails.lastName}</h1>
-      <h1>Address: {userDetails.address}</h1>
-      <h1>Email: {userDetails.email}</h1>
-      <h1>Phone numer: {userDetails.phone}</h1>
-      <h1>Git: {userDetails.links.git}</h1>
-      <h1>Linkedin: {userDetails.links.linkedin}</h1>
-      <h1>Portfolio: {userDetails.links.portfolio}</h1>
-      <h1>SKILLS</h1>
-      <h2>Programming Languages: {userDetails.skills.progLanguages.toString()}</h2>
-      <h2>Web tools: {userDetails.skills.webtools.toString()}</h2>
-      <h2>Operating Systems: {userDetails.skills.os.toString()}</h2>
-      <h2>Databases: {userDetails.skills.db.toString()}</h2>
-      <h2>Other Tools: {userDetails.skills.othertools.toString()}</h2>
-      <h1>Work Experience</h1>
-      <ul>
-        {userDetails.work.map((wk) =>
-          <li key={wk.id}>
-            <h2>Company: {wk.company}</h2>
-            <h2>Position: {wk.position}</h2> 
-            <h3>Start date: {wk.startDate}</h3>
-            <h3>End Date: {wk.endDate}</h3>
-            <h3>Details</h3>
-            <ul>
-              {wk.duties.split('\n').filter(line => line.trim() !== '').map((line, index) => (
-                <li key={index}>{line}</li>
-              ))}              
-            </ul>
-          </li>
-        )}
-      </ul>
-      <h1>Projects</h1>
-      <ul>
-        {
-          userDetails.projects.map((project) =>
-            <li key = {project.id}>              
-              <h2>Project Name: {project.projectName}</h2>
-              <h3>Technologies Used: {project.technologies}</h3>
-              <h3>Project Details</h3>
-              <ul>
-              {project.projectDetails.split('\n').filter(line => line.trim() !== '').map((line, index) => (
-                <li key={index}>{line}</li>
-              ))}              
-            </ul>
-            </li>
-          )
-        }
-      </ul>
-      <h1>Education</h1>
-      <ul>
-        {
-          userDetails.education.map((study) =>
-          <li key={study.id}>
-            <h2>Institute Name: {study.instituteName}</h2>
-            <h3>location: {study.location}</h3>
-            <h3>course: {study.course}</h3>  
-            <h3>grad Date: {study.graduationDate}</h3>  
-            <h3>GPA: {study.gpa}</h3>
-            <h3>Details</h3>    
-            <ul>
-              {study.details.split('\n').filter(line => line.trim() !== '').map((line, index) => (
-                <li key={index}>{line}</li>
-              ))}              
-            </ul>
-          </li>
-          )
-        }
-
-      </ul> */}
+      
       
     </div>
   </>
