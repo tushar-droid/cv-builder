@@ -1,4 +1,4 @@
-import trashIcon from '../assets/trashicon.png'
+import trashIcon from '../assets/trashIcon.png'
 function WorkDetails (props) {
     const jobsList = props.user.map(job => workFormTemplate(job, props.changeHandler));
 

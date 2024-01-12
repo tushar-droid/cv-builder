@@ -1,4 +1,4 @@
-import trashIcon from '../assets/trashicon.png'
+import trashIcon from '../assets/trashIcon.png'
 function ProjectDetails (props) {
     const projectsList = props.user.map(project => ProjectFormTemplate(project, props.changeHandler));
     return (

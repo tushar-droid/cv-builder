@@ -1,5 +1,5 @@
 
-import trashIcon from '../assets/trashicon.png'
+import trashIcon from '../assets/trashIcon.png'
 function EducationDetails (props) {
     const studysList = props.user.map(study => EducationFormTemplate(study, props.changeHandler));
 
