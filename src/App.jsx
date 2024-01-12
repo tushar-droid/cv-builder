@@ -7,6 +7,7 @@ import User from './components/UserTemplate.js';
 import EducationDetails from './components/EducationDetails.jsx';
 import ResumeMaker from './components/ResumeMaker.jsx';
 import addIcon from './assets/addIcon.png';
+import downloadIcon from './assets/downloadIcon.png';
 
 function App() {
   const [userDetails, setUserDetails] = useState(User); 
@@ -316,8 +317,8 @@ function App() {
       top:0,
       behavior:"smooth"
     })
-
   }
+
 
 
   return (
@@ -340,7 +341,7 @@ function App() {
             user = {userDetails.work}
             changeHandler = {handleWorkChanges}
             />
-            <button className='AddNewWork' onClick={addNewWork} type="button">
+            <button className='AddNewWork' title='add another work experience' onClick={addNewWork} type="button">
               <img src={addIcon} style={{height:30}} />
             </button>
         </>
@@ -351,7 +352,7 @@ function App() {
           user = {userDetails.projects}
           changeHandler = {handleProjectChanges}
         />
-          <button className='AddNewProject' onClick={addNewProject} type="button">
+          <button className='AddNewProject' title='add another project' onClick={addNewProject} type="button">
             <img src={addIcon} style={{height:30}} />
           </button>        
         {/* <button className='AddNewProject' onClick={addNewProject} type="button" >Add New</button>         */}
@@ -363,7 +364,7 @@ function App() {
           user = {userDetails.education}
           changeHandler = {handleEducationChages}
         />
-        <button className='AddNewEducation' onClick={addNewStudy} type="button">
+        <button className='AddNewEducation' title='add another education or certification' onClick={addNewStudy} type="button">
           <img src={addIcon} style={{height:30}} />
         </button>         
         {/* <button className='AddNewEducation' onClick={addNewStudy} type="button">Add New</button> */}
@@ -372,12 +373,15 @@ function App() {
 
       </form>
       <div className="navigation-btns">
-        <button className="prev-page-btn" onClick={prevPageButton}>&#8678;</button>
-        <button className="next-page-btn" onClick={nextPageButton}>&#8680;</button>
+        <button className="prev-page-btn" title='Previous Page' onClick={prevPageButton}>&#8678;</button>
+        <button className="next-page-btn" title='Next Page' onClick={nextPageButton}>&#8680;</button>
       </div>
     </div>  
 
     <div className="resume-container">
+      <button className='download-btn' title='Download Resume' onClick={() => window.print({ saveAsPDF: true })}>
+        <img src={downloadIcon}/>
+      </button>
       <ResumeMaker 
         user = {userDetails}
       />

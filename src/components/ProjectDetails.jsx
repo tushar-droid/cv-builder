@@ -21,8 +21,8 @@ function ProjectFormTemplate(project, handler) {
             <div className="details-container">            
                 <label htmlFor="project-details">Project Details: </label>
                 <textarea rows="10" cols="50" id='project-details' value={project.projectDetails} onChange={(e) => handler(e, project.id)}/><br/>                         
-            </div>                    
-            <button className="delete-project" type="button" onClick={(e) => {e.preventDefault(); handler(e,project.id) }}>
+            </div>                     
+            <button className="delete-project" type="button" title='delete this project' onClick={(e) => {e.preventDefault(); handler(e,project.id) }}>
                 <img src={trashIcon} style={{height:25}} onClick={(e) => {e.preventDefault(); handler(e.target.className='delete-project',project.id) }}/>
             </button>  
             <br />  

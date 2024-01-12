@@ -1,6 +1,5 @@
 import '../styles/resumeStyles.css'
 
-
 function ResumeMaker(props){
     const contactDetails =[
         props.user.firstName, 
@@ -8,7 +7,7 @@ function ResumeMaker(props){
         props.user.address, 
         props.user.email, 
         props.user.phone, 
-        props.user.links]
+        props.user.links];
     return(
         <div className="resume-page">
             <div className="contact-container">

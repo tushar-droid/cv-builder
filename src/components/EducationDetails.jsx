@@ -41,7 +41,7 @@ function EducationFormTemplate(study, handler) {
                 <label htmlFor="study-details">Details: </label>
                 <textarea rows="10" cols="50" id='study-details' value={study.details} onChange={(e) => handler(e, study.id)}/><br/>                         
             </div>        
-            <button className="delete-education" type="button" onClick={(e) => {e.preventDefault(); handler(e,study.id) }}>                
+            <button className="delete-education" type="button"  title='delete this study or certification' onClick={(e) => {e.preventDefault(); handler(e,study.id) }}>                
                 <img src={trashIcon} style={{height:25}} onClick={(e) => {e.preventDefault(); handler(e.target.className='delete-education',study.id) }}/>
             </button> 
             {/* <button className="delete-education" type="button"  onClick={(e) => {e.preventDefault(); handler(e,study.id) }}>Delete</button>  
