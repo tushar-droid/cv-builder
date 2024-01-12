@@ -10,19 +10,18 @@
     display: flex;
     /* align-items: center; */
     justify-content: center;    
-    background-color: var(--back-clr);
-    /* height: 100vh;
-    overflow-y: auto; */
+    background-color: var(--txt-clr);
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .resume-page{
     margin: 5%;
-    /* box-shadow: 0px 12px 28px 0px rgba(255, 255, 255, 0.454), 0px 2px 4px 0px rgba(255, 255, 255, 0.237), 0px 0px 0px 1px rgba(255, 255, 255, 0.317) inset; */
-    box-shadow: 0 0 40px 0 rgba(255, 254, 254, 0.345); 
+    box-shadow: 0px 12px 28px 0px rgba(4, 4, 4, 0.454), 0px 2px 4px 0px rgba(0, 0, 0, 0.237), 0px 0px 0px 1px rgba(17, 17, 17, 0.317) inset;
+    /* box-shadow: 0 0 40px 0 rgba(255, 254, 254, 0.345);  */
     height: fit-content;
     width:50%;
-    padding: 0.25in 0.5in 0.5in 0.5in;
-    
+    padding: 0.25in 0.5in 0.5in 0.5in;    
     background-color: var(--txt-clr);
 }
 
@@ -76,6 +75,9 @@ li{
 .study-block > h4{
     margin-top: 0;
 }
+
+
+
 
 
 

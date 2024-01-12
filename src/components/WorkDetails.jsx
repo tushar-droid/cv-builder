@@ -17,7 +17,7 @@ function workFormTemplate(job, handler){
     
 
     return(
-        <li key={job.id}>
+        <li key={job.id} className='job-list'>
             <div className="details-container">            
                 <label htmlFor="position">Position: </label>
                 <input type="text" id='position' value={job.position} onChange={(e) => handler(e, job.id)}/>
@@ -38,9 +38,8 @@ function workFormTemplate(job, handler){
                 <label htmlFor="duties">Duties: </label>
                 <textarea rows="10" cols="50" id='duties' value={job.duties}  onChange={(e) => handler(e, job.id)}/>
             </div>
-            
-            <button className="deleteWork" type="button" onClick={(e) => {e.preventDefault(); handler(e,job.id) }}>
-                DELETE
+            <button className="deleteWork" type="button" onClick={(e) => {e.preventDefault(); handler(e,job.id) }}>                
+                <img src={trashIcon} style={{height:25}} onClick={(e) => {e.preventDefault(); handler(e.target.className='deleteWork',job.id) }}/>
             </button>  
         </li>
     )

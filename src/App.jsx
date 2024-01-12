@@ -6,6 +6,8 @@ import ProjectDetails from './components/ProjectDetails.jsx';
 import User from './components/UserTemplate.js';
 import EducationDetails from './components/EducationDetails.jsx';
 import ResumeMaker from './components/ResumeMaker.jsx';
+import addIcon from './assets/addIcon.png';
+
 function App() {
   const [userDetails, setUserDetails] = useState(User); 
   const [currPage, setcurrPage] = useState(0);
@@ -297,19 +299,34 @@ function App() {
     if(currPage === 3)
       setcurrPage(0)
     else setcurrPage(currPage + 1);
+
+    const cont = document.querySelector('.form-container');
+    cont.scrollTo({
+      top:0,
+      behavior:"smooth"
+    })
   }
 
   function prevPageButton (){
     if(currPage === 0)
       setcurrPage(3)
     else setcurrPage(currPage - 1);
+    const cont = document.querySelector('.form-container');
+    cont.scrollTo({
+      top:0,
+      behavior:"smooth"
+    })
+
   }
 
 
   return (
   <>
     <div className="form-container">
-      <h1>Fill Form </h1>
+      {currPage === 0 && <h1 className='heading'>General Details</h1>}
+      {currPage === 1 && <h1 className='heading'>Work Experience</h1>}
+      {currPage === 2 && <h1 className='heading'>Projects</h1>}
+      {currPage === 3 && <h1 className='heading'>Education</h1>}
       <form onSubmit={(e) => e.preventDefault()}>
       {currPage === 0 && (
         <GeneralDetails 
@@ -323,7 +340,9 @@ function App() {
             user = {userDetails.work}
             changeHandler = {handleWorkChanges}
             />
-            <button className='AddNewWork' onClick={addNewWork} type="button">Add New</button>
+            <button className='AddNewWork' onClick={addNewWork} type="button">
+              <img src={addIcon} style={{height:30}} />
+            </button>
         </>
       )}
       {currPage === 2 && (
@@ -332,7 +351,10 @@ function App() {
           user = {userDetails.projects}
           changeHandler = {handleProjectChanges}
         />
-        <button className='AddNewProject' onClick={addNewProject} type="button" >Add New</button>        
+          <button className='AddNewProject' onClick={addNewProject} type="button">
+            <img src={addIcon} style={{height:30}} />
+          </button>        
+        {/* <button className='AddNewProject' onClick={addNewProject} type="button" >Add New</button>         */}
         </>
       )}
       {currPage === 3 && (
@@ -341,7 +363,10 @@ function App() {
           user = {userDetails.education}
           changeHandler = {handleEducationChages}
         />
-        <button className='AddNewEducation' onClick={addNewStudy} type="button">Add New</button>
+        <button className='AddNewEducation' onClick={addNewStudy} type="button">
+          <img src={addIcon} style={{height:30}} />
+        </button>         
+        {/* <button className='AddNewEducation' onClick={addNewStudy} type="button">Add New</button> */}
         </>
       )}
 
