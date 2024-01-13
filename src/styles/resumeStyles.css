@@ -90,7 +90,7 @@ li{
     }
 
     .form-container{
-        display: none;
+        display: none !important;
     }
 
     .resume-container{
