@@ -45,7 +45,7 @@ function contactSection(contactDetails){
             <h1>{contactDetails[0] + ' ' + contactDetails[1]}</h1>
             <p>{contactDetails[2]}</p>
             <p>{contactDetails[3] + ' | ' + contactDetails[4]}</p>
-            <p>Portfolio: {contactDetails[5].portfolio}</p>
+            <p>Git: <a href={contactDetails[5].git}target='blank'>{contactDetails[5].git}</a> | Portfolio: <a href={contactDetails[5].portfolio}target='blank'> {contactDetails[5].portfolio}</a> </p>
         </>
     )
 

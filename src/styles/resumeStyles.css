@@ -77,16 +77,16 @@ li{
 }
 
 
-
-
-
-
 @media print {
      @page:first {
         margin-top: 0.5in;
     } 
     @page{
         margin-top: 1in;
+    }
+
+    .download-btn{
+        display: none;
     }
 
     .form-container{
@@ -106,10 +106,10 @@ li{
     margin: 0;
     }
     .contact-container{
-    font-size: 16px;
+    font-size: 15px;
     }
     .work-block, .project-block, .study-block, .skill-container-inside{
-        font-size: 16px;
+        font-size: 15px;
     }
     header, footer {
         display: none;

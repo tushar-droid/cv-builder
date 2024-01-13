@@ -52,13 +52,6 @@ function App() {
         setUserDetails(updatedUserDetails)
         break;
       }
-      case 'linkedlink': {
-        const newLinkedin = e.target.value;
-        const updatedUserDetails = {...userDetails};
-        updatedUserDetails.links.linkedin = newLinkedin;
-        setUserDetails(updatedUserDetails)
-        break;
-      }
       case 'portfoliolink': {
         const newPortfolio = e.target.value;
         const updatedUserDetails = {...userDetails};
@@ -324,7 +317,7 @@ function App() {
   return (
   <>
     <div className="form-container">
-      {currPage === 0 && <h1 className='heading'>General Details</h1>}
+      {currPage === 0 && <h1 className='heading'>Contact Details</h1>}
       {currPage === 1 && <h1 className='heading'>Work Experience</h1>}
       {currPage === 2 && <h1 className='heading'>Projects</h1>}
       {currPage === 3 && <h1 className='heading'>Education</h1>}

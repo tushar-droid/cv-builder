@@ -6,7 +6,6 @@ const User = {
     phone: '555-1234-5678',
     links: {
         git: 'https://github.com/tushar-droid',
-        linkedin: 'https://www.linkedin.com/in/tushar3022/',
         portfolio: 'https://tushar-droid.github.io/MyCodeJourney/'
     },
     skills: {

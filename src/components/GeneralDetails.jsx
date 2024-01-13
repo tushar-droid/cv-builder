@@ -7,7 +7,6 @@ function GeneralDetails (props) {
     const email = props.user.email;
     const phone = props.user.phone;
     const gitLink = props.user.links.git;
-    const linkedinLink = props.user.links.linkedin;
     const portfolioLink = props.user.links.portfolio;
     const progLanguages = props.user.skills.progLanguages;
     const webTools = props.user.skills.webtools;
@@ -43,10 +42,7 @@ function GeneralDetails (props) {
                 <label htmlFor="gitLink" > Github Link </label>
                 <input type="text" id='gitlink' value={gitLink} onChange={handlerFunction}/>
             </div>
-            <div className="details-container">
-                <label htmlFor="linkedinlink" > Linkedin Link </label>
-                <input type="text" id='linkedlink' value={linkedinLink} onChange={handlerFunction}/>
-            </div>
+
             <div className="details-container">
                 <label htmlFor="portfoliolink" > Portfolio Link </label>
                 <input type="text" id='portfoliolink' value={portfolioLink} onChange={handlerFunction}/>

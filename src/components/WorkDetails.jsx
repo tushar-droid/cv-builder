@@ -10,9 +10,6 @@ function WorkDetails (props) {
 }
 
 
-
-
-
 function workFormTemplate(job, handler){
     
 
