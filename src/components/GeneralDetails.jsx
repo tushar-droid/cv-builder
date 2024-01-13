@@ -15,6 +15,9 @@ function GeneralDetails (props) {
     const othertools = props.user.skills.othertools;
     const handlerFunction = props.changeHandler;
 
+
+
+
     
     return (
         <>
