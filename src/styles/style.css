@@ -36,7 +36,7 @@ body{
     overflow-y: auto;
 }
 form{
-    /* width: 70%; */
+
     width: 80%;
     align-items: center;
     display: flex;
@@ -150,4 +150,37 @@ input:focus, textarea:focus{
     background-color: var(--btn-clr);
     border-radius: 0.375rem;
     transition: all 0.1s ease-in-out;
+}
+
+
+@media only screen and (max-width:600px) {
+    .download-btn{
+        display: none;                      /* To be removed */
+    }
+    body{
+        display: block;
+    }
+    #root{
+        display: block;
+    }
+
+    .form-container{
+        height: auto;
+    }
+
+    .heading{
+        font-size: 2.5rem;
+        margin-bottom: 5%;
+    }
+    .details-container{
+        margin-bottom: 0;
+    }
+    label, textarea, input{
+        font-size: 0.8rem;
+    }
+
+    form > ul > li, form{
+        gap: 1rem;
+    }
+
 }
