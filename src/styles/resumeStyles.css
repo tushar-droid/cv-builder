@@ -77,45 +77,7 @@ li{
 }
 
 
-@media print {
-     @page:first {
-        margin-top: 0.5in;
-    } 
-    @page{
-        margin-top: 1in;
-    }
 
-    .download-btn{
-        display: none;
-    }
-
-    .form-container{
-        display: none !important;
-    }
-
-    .resume-container{
-        height: fit-content;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .resume-page{
-    width: 210mm;
-    height: 297mm;      
-    box-shadow: none; 
-    margin: 0;
-    }
-    .contact-container{
-    font-size: 15px;
-    }
-    .work-block, .project-block, .study-block, .skill-container-inside{
-        font-size: 15px;
-    }
-    header, footer {
-        display: none;
-    }
-    
-}
 
 @media only screen and (max-width:600px){
     .resume-container{
@@ -171,6 +133,7 @@ li{
        height: fit-content;
        width: 100% !important;
        overflow: hidden;
+       position: absolute;
    }
    .resume-page{
    width: 210mm !important;
