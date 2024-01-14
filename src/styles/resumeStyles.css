@@ -115,9 +115,11 @@ li{
 
 @media print {
     @page:first {
-       margin-top: 0.5in;   
+        size: auto;
+        margin-top: 0.5in;   
    } 
    @page{
+       size: auto;
        margin-top: 1in;
    }
 
@@ -137,7 +139,6 @@ li{
    }
    .resume-page{
    width: 210mm !important;
-   height: 297mm !important;      
    box-shadow: none !important; 
    margin: 0 !important;
    }
@@ -147,8 +148,5 @@ li{
    .work-block, .project-block, .study-block, .skill-container-inside{
        font-size: 15px !important;
    }
-   header, footer {
-       display: none !important;
-   }
-   
+
 }
