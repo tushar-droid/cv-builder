@@ -154,9 +154,7 @@ input:focus, textarea:focus{
 
 
 @media only screen and (max-width:600px) {
-    .download-btn{
-        display: none;                      /* To be removed */
-    }
+
     body{
         display: block;
         overflow-x: hidden;

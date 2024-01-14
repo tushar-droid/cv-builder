@@ -119,16 +119,35 @@ li{
 
 @media only screen and (max-width:600px){
     .resume-container{
-        height: auto;
+        height: unset;
         padding-bottom: 2rem;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2rem;
     }
     .resume-page{
         margin: 0;
         padding: 4% 6% 6% 6% ;
-        width: 80%;
+        width: 80%;        
+    }
+    .download-btn{
+        position:relative;
+        width: 80%;        
+        top: 0;
+        right: 0;
+    }
+    .download-btn > img{
+        height: 2rem;
     }
 
     .resume-page  *{
         font-size: 8px;
     }
+
+    .work-duties, .project-details, .study-details{
+        padding-left: 2rem;
+        list-style:disc;
+
+    }
+
 }
