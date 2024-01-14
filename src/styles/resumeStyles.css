@@ -130,7 +130,7 @@ li{
    }
 
    .resume-container{
-       height: fit-content;
+       height: fit-content !important;
        width: 100% !important;
        overflow: hidden;
        position: absolute;
