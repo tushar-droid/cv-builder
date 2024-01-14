@@ -169,7 +169,7 @@ li{
 
    .resume-container{
        height: fit-content;
-       width: 100%;
+       width: 100% !important;
        overflow: hidden;
    }
    .resume-page{
