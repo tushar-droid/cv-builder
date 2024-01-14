@@ -159,6 +159,7 @@ input:focus, textarea:focus{
     }
     body{
         display: block;
+        overflow-x: hidden;
     }
     #root{
         display: block;
@@ -166,6 +167,7 @@ input:focus, textarea:focus{
 
     .form-container{
         height: auto;
+        margin-bottom: 2rem;
     }
 
     .heading{
